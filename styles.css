@@ -1,0 +1,285 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+.photo-frame {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 30px;
+    border: 5px solid #2c3e50;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+#diputado-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.counter-container {
+    margin-top: 20px;
+}
+
+.counter {
+    font-size: 8rem;
+    font-weight: bold;
+    color: #e74c3c;
+    line-height: 1;
+    text-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+}
+
+.label {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-top: -10px;
+}
+
+/* Estilos para el mensaje de "¡Terminó!" */
+.celebration {
+    display: none;
+    font-size: 4rem;
+    color: #e74c3c;
+    animation: pulse 1.5s infinite;
+    margin-top: 20px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Canvas de confeti (ocupa toda la pantalla) */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
+}
+
+/* Añade esto al final de tu styles.css */
+.time-detail {
+    font-size: 1.5rem;
+    color: #000;
+    margin-top: -15px;
+    margin-bottom: 20px;
+    font-family: monospace;
+}
+
+/* CONTROLES DE VIDEO - Versión corregida */
+#video-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 12px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row; /* Controles en horizontal */
+    align-items: center;
+    gap: 12px;
+    z-index: 1001;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.media-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.media-btn:hover {
+    background: #c0392b;
+    transform: scale(1.1);
+}
+
+#volume-control {
+    width: 100px;
+    height: 6px;
+    accent-color: #e74c3c;
+}
+
+#volume-control:hover {
+    accent-color: #c0392b;
+}
+
+.audio-play-button {
+    position: fixed;
+    bottom: 80px; /* Encima de los controles */
+    left: 20px;
+    padding: 12px 24px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 1002;
+    transition: all 0.3s;
+    margin-bottom: 10px; /* Espacio entre botón y controles */
+}
+
+.audio-play-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+.celebration {
+    font-weight: bold !important;
+    /* Mantén el resto de tus estilos existentes */
+}
+
+/* Ajustes para móviles */
+@media (max-width: 1000px) {
+    #video-controls {
+        bottom: 10px;
+        left: 10px;
+        padding: 10px;
+        gap: 8px;
+    }
+    
+    .audio-play-button {
+        bottom: 70px;
+        left: 10px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    #volume-control {
+        width: 80px;
+    }
+}
+
+/* Ajustes generales para móviles */
+@media (max-width: 1000px) {
+    body {
+        min-height: 100vh;
+        height: auto;
+        overflow: auto;
+        padding: 20px 0;
+    }
+
+    .container {
+        width: 95%;
+        max-width: none;
+        padding: 10px;
+        transform-origin: top center;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .photo-frame {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 20px;
+    }
+
+    .counter {
+        font-size: 4rem;
+    }
+
+    .label {
+        font-size: 1.3rem;
+        margin-top: -5px;
+    }
+
+    .celebration {
+        font-size: 2.5rem;
+        margin-top: 10px;
+    }
+
+    .time-detail {
+        font-size: 1rem;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    /* Controles de video en vertical */
+    #video-controls {
+        bottom: 10px;
+        left: 10px;
+        flex-direction: column;
+        padding: 8px;
+        gap: 8px;
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .media-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    #volume-control {
+        width: 6px;
+        height: 80px;
+        -webkit-appearance: slider-vertical;
+        writing-mode: bt-lr;
+    }
+
+    /* Botón de activación */
+    .audio-play-button {
+        bottom: 120px;
+        left: 10px;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 400px) {
+    .container {
+        transform: scale(0.9);
+    }
+
+    .photo-frame {
+        width: 150px;
+        height: 150px;
+    }
+
+    .counter {
+        font-size: 3.5rem;
+    }
+}

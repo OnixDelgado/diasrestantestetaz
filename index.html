@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    <title>Días restantes de Martin Tetaz como diputado</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- En el <head> -->
+<link rel="preload" href="assets/Milei cantando Panic Show - Versión Oficial.mp4" as="video">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icon/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+    <!-- Confeti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+    
+    <!-- Contenido principal -->
+    <div class="container">
+        <h1>Días restantes como diputado</h1>
+        <div class="photo-frame">
+            <img id="diputado-photo" src="assets/martintetaz.png" alt="Martin Tetaz">
+        </div>
+        <div class="counter-container">
+            <div id="counter" class="counter"></div>
+            <div class="label">DÍAS</div>
+        </div>
+    </div>
+    
+    <!-- Video de celebración (oculto inicialmente) -->
+    <video id="celebration-video" preload="auto" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; opacity: 0.3;">
+        <source src="assets/Milei cantando Panic Show - Versión Oficial.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+    </video>
+
+    <!-- Controles de video -->
+    <div id="video-controls" style="display: none;">
+        <button id="play-pause-btn" class="media-btn">⏸️</button>
+        <button id="restart-btn" class="media-btn">🔄</button>
+        <button id="mute-btn" class="media-btn">🔊</button>
+        <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.7">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
